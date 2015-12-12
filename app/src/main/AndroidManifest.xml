@@ -24,6 +24,15 @@
             android:label="MatstatExtentor"
             android:configChanges="keyboardHidden|orientation|screenSize"
             ></activity>
+        <activity
+            android:name=".DigCom"
+            android:label="DigCom"></activity>
+
+        <activity
+            android:name=".DigComExtentor"
+            android:label="DigComExtentor"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            ></activity>
     </application>
 
 </manifest>

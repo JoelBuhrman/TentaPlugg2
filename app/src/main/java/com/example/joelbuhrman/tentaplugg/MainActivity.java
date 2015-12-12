@@ -20,4 +20,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Fysik.class));
 
     }
+
+    public void openDigCom(View view){
+        startActivity(new Intent(this, DigCom.class));
+    }
 }

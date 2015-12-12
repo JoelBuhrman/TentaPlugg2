@@ -25,6 +25,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="16dp"
             android:text="DigCom "
+            android:onClick="openDigCom"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView

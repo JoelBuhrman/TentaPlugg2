@@ -22,9 +22,9 @@ import java.util.Random;
 /**
  * Created by JoelBuhrman on 2015-12-09.
  */
-public class FysikExtentor extends Activity implements View.OnTouchListener {
+public class DigComExtentor extends Activity implements View.OnTouchListener{
     private static final String TAG = "Touch";
-    private static final float MIN_ZOOM = 1f, MAX_ZOOM = 1f;
+    private static final float MIN_ZOOM = 1f,MAX_ZOOM = 1f;
     Matrix matrix = new Matrix();
     Matrix savedMatrix = new Matrix();
     static final int NONE = 0;
@@ -36,26 +36,30 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
     float oldDist = 1f;
 
 
+
+
+
+
     public static ArrayList<String> Party_list_new = new ArrayList<String>();
 
     ArrayList<String> party_multi_cheked = new ArrayList<String>();
 
 
-    private boolean[] choosenQuestions = {true, true, true, true, true, true, true};
+    private boolean[] choosenQuestions = {true, true, true, true, true, true};
 
-    private int[] q1 = new int[]{R.drawable.f13q1, R.drawable.f14q1, R.drawable.f15q1, R.drawable.f12q1};
-    private int[] q2 = new int[]{R.drawable.f13q2, R.drawable.f14q2, R.drawable.f15q2, R.drawable.f12q2};
-    private int[] q3 = new int[]{R.drawable.f13q3, R.drawable.f14q3, R.drawable.f15q3, R.drawable.f12q3};
-    private int[] q4 = new int[]{R.drawable.f13q4, R.drawable.f14q4, R.drawable.f15q4, R.drawable.f12q4};
-    private int[] q5 = new int[]{R.drawable.f13q5, R.drawable.f14q5, R.drawable.f15q5, R.drawable.f12q5};
-    private int[] q6 = new int[]{R.drawable.f13q6, R.drawable.f14q6, R.drawable.f15q6, R.drawable.f12q6};
+    private int[] q1 = new int[]{R.drawable.d14q1,R.drawable.d13q1,R.drawable.d12q1,R.drawable.d11q1,R.drawable.d10q1,R.drawable.d09q1,R.drawable.d08q1,R.drawable.d07q1,R.drawable.d06q1};
+    private int[] q2 = new int[]{R.drawable.d14q2,R.drawable.d13q2,R.drawable.d12q2,R.drawable.d11q2,R.drawable.d10q2,R.drawable.d09q2,R.drawable.d08q2,R.drawable.d07q2,R.drawable.d06q2};
+    private int[] q3 = new int[]{R.drawable.d14q3,R.drawable.d13q3,R.drawable.d12q3,R.drawable.d11q3,R.drawable.d10q3,R.drawable.d09q3,R.drawable.d08q3,R.drawable.d07q3,R.drawable.d06q3};
+    private int[] q4 = new int[]{R.drawable.d14q4,R.drawable.d13q4,R.drawable.d12q4,R.drawable.d11q4,R.drawable.d10q4,R.drawable.d09q4,R.drawable.d08q4,R.drawable.d07q4,R.drawable.d06q4};
+    private int[] q5 = new int[]{R.drawable.d14q5,R.drawable.d13q5,R.drawable.d12q5,R.drawable.d11q5,R.drawable.d10q5,R.drawable.d09q5,R.drawable.d08q5,R.drawable.d07q5,R.drawable.d06q5};
 
-    private int[] a1 = new int[]{R.drawable.f13a1, R.drawable.f14a1, R.drawable.f15a1, R.drawable.f12a1};
-    private int[] a2 = new int[]{R.drawable.f13a2, R.drawable.f14a2, R.drawable.f15a2, R.drawable.f12a2};
-    private int[] a3 = new int[]{R.drawable.f13a3, R.drawable.f14a3, R.drawable.f15a3, R.drawable.f12a3};
-    private int[] a4 = new int[]{R.drawable.f13a4, R.drawable.f14a4, R.drawable.f15a4, R.drawable.f12a4};
-    private int[] a5 = new int[]{R.drawable.f13a5, R.drawable.f14a5, R.drawable.f15a5, R.drawable.f12a5};
-    private int[] a6 = new int[]{R.drawable.f13a6, R.drawable.f14a6, R.drawable.f15a6, R.drawable.f12a6};
+
+    private int[] a1 = new int[]{R.drawable.d14a1,R.drawable.d13a1,R.drawable.d12a1,R.drawable.d11a1,R.drawable.d10a1,R.drawable.d09a1,R.drawable.d08a1,R.drawable.d07a1,R.drawable.d06a1};
+    private int[] a2 = new int[]{R.drawable.d14a2,R.drawable.d13a2,R.drawable.d12a2,R.drawable.d11a2,R.drawable.d10a2,R.drawable.d09a2,R.drawable.d08a2,R.drawable.d07a2,R.drawable.d06a2};
+    private int[] a3 = new int[]{R.drawable.d14a3,R.drawable.d13a3,R.drawable.d12a3,R.drawable.d11a3,R.drawable.d10a3,R.drawable.d09a3,R.drawable.d08a3,R.drawable.d07a3,R.drawable.d06a3};
+    private int[] a4 = new int[]{R.drawable.d14a4,R.drawable.d13a4,R.drawable.d12a4,R.drawable.d11a4,R.drawable.d10a4,R.drawable.d09a4,R.drawable.d08a4,R.drawable.d07a4,R.drawable.d06a4};
+    private int[] a5 = new int[]{R.drawable.d14a5,R.drawable.d13a5,R.drawable.d12a5,R.drawable.d11a5,R.drawable.d10a5,R.drawable.d09a5,R.drawable.d08a5,R.drawable.d07a5,R.drawable.d06a5};
+
 
     private ArrayList<Integer> answers;
     private ArrayList<Integer> questions;
@@ -78,7 +82,7 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         Party_list_new.add("3");
         Party_list_new.add("4");
         Party_list_new.add("5");
-        Party_list_new.add("6");
+
 
 
         qLists = new ArrayList<int[]>();
@@ -87,7 +91,7 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         qLists.add(q3);
         qLists.add(q4);
         qLists.add(q5);
-        qLists.add(q6);
+
 
         aLists = new ArrayList<int[]>();
         aLists.add(a1);
@@ -95,16 +99,16 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         aLists.add(a3);
         aLists.add(a4);
         aLists.add(a5);
-        aLists.add(a6);
+
 
 
         filter(choosenQuestions);
 
         question = (ImageView) findViewById(R.id.matstat_extentor_question_imageView);
         answer = (ImageView) findViewById(R.id.matstat_extentor_answer_imageView);
-
         question.setOnTouchListener(this);
         answer.setOnTouchListener(this);
+
 
         rand = new Random();
 
@@ -227,21 +231,6 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
             }
         }
 
-        if (filtered[5])
-
-        {
-
-            int[] tempList = qLists.get(5);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                questions.add(tempList[j]);
-
-            }
-            int[] tempList2 = aLists.get(5);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                answers.add(tempList2[j]);
-
-            }
-        }
     }
 
     public void show_alert(View view) {
@@ -276,7 +265,7 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
                 SparseBooleanArray positions = list_alert
                         .getCheckedItemPositions();
                 int j = 0;
-                boolean[] temp = new boolean[6];
+                boolean[] temp = new boolean[5];
                 for (int k = 0; k < Party_list_new.size(); k++) {
                     if (positions.get(k)) {
 
@@ -296,14 +285,6 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
 
     }
 
-
-    /**
-     * Metod hämtad från nätet för zoomade bilder
-     *
-     * @param v
-     * @param event
-     * @return
-     */
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         ImageView view = (ImageView) v;
@@ -313,7 +294,8 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         dumpEvent(event);
         // Handle touch events here...
 
-        switch (event.getAction() & MotionEvent.ACTION_MASK) {
+        switch (event.getAction() & MotionEvent.ACTION_MASK)
+        {
             case MotionEvent.ACTION_DOWN:   // first finger down only
                 savedMatrix.set(matrix);
                 start.set(event.getX(), event.getY());
@@ -343,14 +325,18 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
 
             case MotionEvent.ACTION_MOVE:
 
-                if (mode == DRAG) {
+                if (mode == DRAG)
+                {
                     matrix.set(savedMatrix);
                     matrix.postTranslate(event.getX() - start.x, event.getY() - start.y); // create the transformation in the matrix  of points
-                } else if (mode == ZOOM) {
+                }
+                else if (mode == ZOOM)
+                {
                     // pinch zooming
                     float newDist = spacing(event);
                     Log.d(TAG, "newDist=" + newDist);
-                    if (newDist > 5f) {
+                    if (newDist > 5f)
+                    {
                         matrix.set(savedMatrix);
                         scale = newDist / oldDist; // setting the scaling of the
                         // matrix...if scale > 1 means
@@ -366,11 +352,11 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
 
         return true; // indicate event was handled
     }
-
-    private float spacing(MotionEvent event) {
+    private float spacing(MotionEvent event)
+    {
         float x = event.getX(0) - event.getX(1);
         float y = event.getY(0) - event.getY(1);
-        return (float) Math.sqrt(x * x + y * y);
+        return (float)Math.sqrt(x * x + y * y);
     }
 
     /*
@@ -380,29 +366,31 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
      * ------------------------------------------------------------
      */
 
-    private void midPoint(PointF point, MotionEvent event) {
+    private void midPoint(PointF point, MotionEvent event)
+    {
         float x = event.getX(0) + event.getX(1);
         float y = event.getY(0) + event.getY(1);
         point.set(x / 2, y / 2);
     }
 
-    /**
-     * Show an event in the LogCat view, for debugging
-     */
-    private void dumpEvent(MotionEvent event) {
-        String names[] = {"DOWN", "UP", "MOVE", "CANCEL", "OUTSIDE", "POINTER_DOWN", "POINTER_UP", "7?", "8?", "9?"};
+    /** Show an event in the LogCat view, for debugging */
+    private void dumpEvent(MotionEvent event)
+    {
+        String names[] = { "DOWN", "UP", "MOVE", "CANCEL", "OUTSIDE","POINTER_DOWN", "POINTER_UP", "7?", "8?", "9?" };
         StringBuilder sb = new StringBuilder();
         int action = event.getAction();
         int actionCode = action & MotionEvent.ACTION_MASK;
         sb.append("event ACTION_").append(names[actionCode]);
 
-        if (actionCode == MotionEvent.ACTION_POINTER_DOWN || actionCode == MotionEvent.ACTION_POINTER_UP) {
+        if (actionCode == MotionEvent.ACTION_POINTER_DOWN || actionCode == MotionEvent.ACTION_POINTER_UP)
+        {
             sb.append("(pid ").append(action >> MotionEvent.ACTION_POINTER_ID_SHIFT);
             sb.append(")");
         }
 
         sb.append("[");
-        for (int i = 0; i < event.getPointerCount(); i++) {
+        for (int i = 0; i < event.getPointerCount(); i++)
+        {
             sb.append("#").append(i);
             sb.append("(pid ").append(event.getPointerId(i));
             sb.append(")=").append((int) event.getX(i));
