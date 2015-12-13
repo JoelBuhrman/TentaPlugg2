@@ -46,7 +46,7 @@
             android:layout_below="@+id/regleringsteknik_textView"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:onClick="openMatstat"
+            android:onClick="openFysik"
             android:padding="16dp"
             android:text="Fysik"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -60,6 +60,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="16dp"
             android:text="Matstat"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:onClick="openMatstat" />
     </LinearLayout>
 </RelativeLayout>

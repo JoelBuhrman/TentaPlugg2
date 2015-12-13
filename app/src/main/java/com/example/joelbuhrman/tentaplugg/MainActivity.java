@@ -16,12 +16,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void openMatstat(View view){
+    public void openFysik(View view){
         startActivity(new Intent(this, Fysik.class));
 
     }
 
     public void openDigCom(View view){
         startActivity(new Intent(this, DigCom.class));
+    }
+    public void openMatstat(View view){
+        startActivity(new Intent(this, Matstat.class));
     }
 }

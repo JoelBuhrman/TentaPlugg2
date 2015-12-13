@@ -7,6 +7,7 @@ import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -40,12 +41,12 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
 
 
 
-    public static ArrayList<String> Party_list_new = new ArrayList<String>();
-
-    ArrayList<String> party_multi_cheked = new ArrayList<String>();
+    private  ArrayList<String> Party_list_new1 = new ArrayList<String>();
 
 
-    private boolean[] choosenQuestions = {true, true, true, true, true, true};
+
+
+    private boolean[] choosenQuestions = {true, true, true, true, true};
 
     private int[] q1 = new int[]{R.drawable.d14q1,R.drawable.d13q1,R.drawable.d12q1,R.drawable.d11q1,R.drawable.d10q1,R.drawable.d09q1,R.drawable.d08q1,R.drawable.d07q1,R.drawable.d06q1};
     private int[] q2 = new int[]{R.drawable.d14q2,R.drawable.d13q2,R.drawable.d12q2,R.drawable.d11q2,R.drawable.d10q2,R.drawable.d09q2,R.drawable.d08q2,R.drawable.d07q2,R.drawable.d06q2};
@@ -77,11 +78,11 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
         questions = new ArrayList<Integer>();
         answers = new ArrayList<Integer>();
 
-        Party_list_new.add("1");
-        Party_list_new.add("2");
-        Party_list_new.add("3");
-        Party_list_new.add("4");
-        Party_list_new.add("5");
+        Party_list_new1.add("1");
+        Party_list_new1.add("2");
+        Party_list_new1.add("3");
+        Party_list_new1.add("4");
+        Party_list_new1.add("5");
 
 
 
@@ -102,21 +103,12 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
 
 
 
-        filter(choosenQuestions);
-
+        rand = new Random();
         question = (ImageView) findViewById(R.id.matstat_extentor_question_imageView);
         answer = (ImageView) findViewById(R.id.matstat_extentor_answer_imageView);
         question.setOnTouchListener(this);
         answer.setOnTouchListener(this);
-
-
-        rand = new Random();
-
-        index = rand.nextInt(questions.size());
-        ansResource = answers.get(index);
-        question.setImageResource(questions.get(index));
-        answer.setImageResource(R.color.blank);
-
+        filter(choosenQuestions);
 
     }
 
@@ -230,7 +222,25 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
 
             }
         }
+        setResources();
+        StringBuilder sb = new StringBuilder();
+        int i = 1;
+        for(boolean b: filtered){
+            if(b){
+                sb.append(i+ ", ");
+            }
+            i++;
+        }
+        sb.replace(sb.length()-2, sb.length(), ".");
+        Toast.makeText(this, "Showing questions: "+sb.toString(), Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void setResources(){
+        index = rand.nextInt(questions.size());
+        ansResource = answers.get(index);
+        question.setImageResource(questions.get(index));
+        answer.setImageResource(R.color.blank);
     }
 
     public void show_alert(View view) {
@@ -245,7 +255,7 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
 
         list_alert.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout.simple_list_item_multiple_choice,
-                Party_list_new));
+                Party_list_new1));
 
         list_alert.setItemsCanFocus(false);
         list_alert.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -266,18 +276,22 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
                         .getCheckedItemPositions();
                 int j = 0;
                 boolean[] temp = new boolean[5];
-                for (int k = 0; k < Party_list_new.size(); k++) {
+                boolean correct = false;
+                for (int k = 0; k < Party_list_new1.size(); k++) {
                     if (positions.get(k)) {
 
                         temp[k] = true;
-
+                        correct = true;
 
                     } else {
                         temp[k] = false;
                     }
                 }
-                filter(temp);
-                dia.dismiss();
+
+                if (correct) {
+                    filter(temp);
+                    dia.dismiss();
+                }
 
             }
         });
@@ -401,5 +415,14 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
 
         sb.append("]");
         Log.d("Touch Events ---------", sb.toString());
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -21,7 +21,7 @@
 
         <activity
             android:name=".FysikExtentor"
-            android:label="MatstatExtentor"
+            android:label="FysikExtentor"
             android:configChanges="keyboardHidden|orientation|screenSize"
             ></activity>
         <activity
@@ -31,6 +31,17 @@
         <activity
             android:name=".DigComExtentor"
             android:label="DigComExtentor"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            ></activity>
+
+
+        <activity
+            android:name=".Matstat"
+            android:label="Matstat"></activity>
+
+        <activity
+            android:name=".MatstatExtentor"
+            android:label="MatstatExtentor"
             android:configChanges="keyboardHidden|orientation|screenSize"
             ></activity>
     </application>

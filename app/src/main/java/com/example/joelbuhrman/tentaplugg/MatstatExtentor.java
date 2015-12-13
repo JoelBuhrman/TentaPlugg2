@@ -23,9 +23,9 @@ import java.util.Random;
 /**
  * Created by JoelBuhrman on 2015-12-09.
  */
-public class FysikExtentor extends Activity implements View.OnTouchListener {
+public class MatstatExtentor extends Activity implements View.OnTouchListener{
     private static final String TAG = "Touch";
-    private static final float MIN_ZOOM = 1f, MAX_ZOOM = 1f;
+    private static final float MIN_ZOOM = 1f,MAX_ZOOM = 1f;
     Matrix matrix = new Matrix();
     Matrix savedMatrix = new Matrix();
     static final int NONE = 0;
@@ -37,31 +37,32 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
     float oldDist = 1f;
 
 
-    private  ArrayList<String> Party_list_new2 = new ArrayList<String>();
 
 
-    private boolean[] choosenQuestions = {true, true, true, true, true, true};
 
-    private int[] q1 = new int[]{R.drawable.f13q1, R.drawable.f14q1, R.drawable.f15q1, R.drawable.f12q1};
-    private int[] q2 = new int[]{R.drawable.f13q2, R.drawable.f14q2, R.drawable.f15q2, R.drawable.f12q2};
-    private int[] q3 = new int[]{R.drawable.f13q3, R.drawable.f14q3, R.drawable.f15q3, R.drawable.f12q3};
-    private int[] q4 = new int[]{R.drawable.f13q4, R.drawable.f14q4, R.drawable.f15q4, R.drawable.f12q4};
-    private int[] q5 = new int[]{R.drawable.f13q5, R.drawable.f14q5, R.drawable.f15q5, R.drawable.f12q5};
-    private int[] q6 = new int[]{R.drawable.f13q6, R.drawable.f14q6, R.drawable.f15q6, R.drawable.f12q6};
 
-    private int[] a1 = new int[]{R.drawable.f13a1, R.drawable.f14a1, R.drawable.f15a1, R.drawable.f12a1};
-    private int[] a2 = new int[]{R.drawable.f13a2, R.drawable.f14a2, R.drawable.f15a2, R.drawable.f12a2};
-    private int[] a3 = new int[]{R.drawable.f13a3, R.drawable.f14a3, R.drawable.f15a3, R.drawable.f12a3};
-    private int[] a4 = new int[]{R.drawable.f13a4, R.drawable.f14a4, R.drawable.f15a4, R.drawable.f12a4};
-    private int[] a5 = new int[]{R.drawable.f13a5, R.drawable.f14a5, R.drawable.f15a5, R.drawable.f12a5};
-    private int[] a6 = new int[]{R.drawable.f13a6, R.drawable.f14a6, R.drawable.f15a6, R.drawable.f12a6};
+    private ArrayList<String> Party_list_new3 = new ArrayList<String>();
+
+
+
+
+    private boolean[] choosenQuestions = {true, true, true};
+
+    private int[] q1 = new int[]{R.drawable.m15q1,R.drawable.m13q1, R.drawable.m12q1,R.drawable.m11q1,R.drawable.m09q1};
+    private int[] q2 = new int[]{R.drawable.m15q2,R.drawable.m13q2, R.drawable.m12q2,R.drawable.m11q2,R.drawable.m09q2};
+    private int[] q3 = new int[]{R.drawable.m15q3,R.drawable.m13q3, R.drawable.m12q3,R.drawable.m11q3,R.drawable.m09q3};
+
+    private int[] a1 = new int[]{R.drawable.m15a1,R.drawable.m13a1,R.drawable.m12a1,R.drawable.m11a1,R.drawable.m09a1};
+    private int[] a2 = new int[]{R.drawable.m15a2,R.drawable.m13a2,R.drawable.m12a2,R.drawable.m11a2,R.drawable.m09a2};
+    private int[] a3 = new int[]{R.drawable.m15a3,R.drawable.m13a3,R.drawable.m12a3,R.drawable.m11a3,R.drawable.m09a3};
+
 
     private ArrayList<Integer> answers;
     private ArrayList<Integer> questions;
     private ArrayList<int[]> qLists, aLists;
 
     private ImageView question, answer;
-    Random rand;
+    private Random rand;
     private int index, ansResource;
 
 
@@ -72,29 +73,23 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         questions = new ArrayList<Integer>();
         answers = new ArrayList<Integer>();
 
-        Party_list_new2.add("1");
-        Party_list_new2.add("2");
-        Party_list_new2.add("3");
-        Party_list_new2.add("4");
-        Party_list_new2.add("5");
-        Party_list_new2.add("6");
+        Party_list_new3.add("1");
+        Party_list_new3.add("2");
+        Party_list_new3.add("3");
+
+
 
 
         qLists = new ArrayList<int[]>();
         qLists.add(q1);
         qLists.add(q2);
         qLists.add(q3);
-        qLists.add(q4);
-        qLists.add(q5);
-        qLists.add(q6);
+
 
         aLists = new ArrayList<int[]>();
         aLists.add(a1);
         aLists.add(a2);
         aLists.add(a3);
-        aLists.add(a4);
-        aLists.add(a5);
-        aLists.add(a6);
 
 
         rand = new Random();
@@ -103,6 +98,7 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         question.setOnTouchListener(this);
         answer.setOnTouchListener(this);
         filter(choosenQuestions);
+
 
 
     }
@@ -185,54 +181,6 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
             }
         }
 
-        if (filtered[3])
-
-        {
-
-            int[] tempList = qLists.get(3);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                questions.add(tempList[j]);
-
-            }
-            int[] tempList2 = aLists.get(3);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                answers.add(tempList2[j]);
-
-            }
-        }
-
-        if (filtered[4])
-
-        {
-
-
-            int[] tempList = qLists.get(4);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                questions.add(tempList[j]);
-
-            }
-            int[] tempList2 = aLists.get(4);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                answers.add(tempList2[j]);
-
-            }
-        }
-
-        if (filtered[5])
-
-        {
-
-            int[] tempList = qLists.get(5);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                questions.add(tempList[j]);
-
-            }
-            int[] tempList2 = aLists.get(5);
-            for (int j = 0; j <= tempList.length - 1; j++) {
-                answers.add(tempList2[j]);
-
-            }
-        }
         setResources();
         StringBuilder sb = new StringBuilder();
         int i = 1;
@@ -245,6 +193,7 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         sb.replace(sb.length()-2, sb.length(), ".");
         Toast.makeText(this, "Showing questions: "+sb.toString(), Toast.LENGTH_SHORT).show();
 
+
     }
 
     public void setResources(){
@@ -253,6 +202,7 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         question.setImageResource(questions.get(index));
         answer.setImageResource(R.color.blank);
     }
+
 
     public void show_alert(View view) {
 
@@ -266,7 +216,7 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
 
         list_alert.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout.simple_list_item_multiple_choice,
-                Party_list_new2));
+                Party_list_new3));
 
         list_alert.setItemsCanFocus(false);
         list_alert.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -286,9 +236,9 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
                 SparseBooleanArray positions = list_alert
                         .getCheckedItemPositions();
                 int j = 0;
-                boolean[] temp = new boolean[6];
+                boolean[] temp = new boolean[3];
                 boolean correct = false;
-                for (int k = 0; k < Party_list_new2.size(); k++) {
+                for (int k = 0; k < Party_list_new3.size(); k++) {
                     if (positions.get(k)) {
 
                         temp[k] = true;
@@ -310,14 +260,6 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
 
     }
 
-
-    /**
-     * Metod hämtad från nätet för zoomade bilder
-     *
-     * @param v
-     * @param event
-     * @return
-     */
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         ImageView view = (ImageView) v;
@@ -327,7 +269,8 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         dumpEvent(event);
         // Handle touch events here...
 
-        switch (event.getAction() & MotionEvent.ACTION_MASK) {
+        switch (event.getAction() & MotionEvent.ACTION_MASK)
+        {
             case MotionEvent.ACTION_DOWN:   // first finger down only
                 savedMatrix.set(matrix);
                 start.set(event.getX(), event.getY());
@@ -357,14 +300,18 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
 
             case MotionEvent.ACTION_MOVE:
 
-                if (mode == DRAG) {
+                if (mode == DRAG)
+                {
                     matrix.set(savedMatrix);
                     matrix.postTranslate(event.getX() - start.x, event.getY() - start.y); // create the transformation in the matrix  of points
-                } else if (mode == ZOOM) {
+                }
+                else if (mode == ZOOM)
+                {
                     // pinch zooming
                     float newDist = spacing(event);
                     Log.d(TAG, "newDist=" + newDist);
-                    if (newDist > 5f) {
+                    if (newDist > 5f)
+                    {
                         matrix.set(savedMatrix);
                         scale = newDist / oldDist; // setting the scaling of the
                         // matrix...if scale > 1 means
@@ -380,11 +327,11 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
 
         return true; // indicate event was handled
     }
-
-    private float spacing(MotionEvent event) {
+    private float spacing(MotionEvent event)
+    {
         float x = event.getX(0) - event.getX(1);
         float y = event.getY(0) - event.getY(1);
-        return (float) Math.sqrt(x * x + y * y);
+        return (float)Math.sqrt(x * x + y * y);
     }
 
     /*
@@ -394,29 +341,31 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
      * ------------------------------------------------------------
      */
 
-    private void midPoint(PointF point, MotionEvent event) {
+    private void midPoint(PointF point, MotionEvent event)
+    {
         float x = event.getX(0) + event.getX(1);
         float y = event.getY(0) + event.getY(1);
         point.set(x / 2, y / 2);
     }
 
-    /**
-     * Show an event in the LogCat view, for debugging
-     */
-    private void dumpEvent(MotionEvent event) {
-        String names[] = {"DOWN", "UP", "MOVE", "CANCEL", "OUTSIDE", "POINTER_DOWN", "POINTER_UP", "7?", "8?", "9?"};
+    /** Show an event in the LogCat view, for debugging */
+    private void dumpEvent(MotionEvent event)
+    {
+        String names[] = { "DOWN", "UP", "MOVE", "CANCEL", "OUTSIDE","POINTER_DOWN", "POINTER_UP", "7?", "8?", "9?" };
         StringBuilder sb = new StringBuilder();
         int action = event.getAction();
         int actionCode = action & MotionEvent.ACTION_MASK;
         sb.append("event ACTION_").append(names[actionCode]);
 
-        if (actionCode == MotionEvent.ACTION_POINTER_DOWN || actionCode == MotionEvent.ACTION_POINTER_UP) {
+        if (actionCode == MotionEvent.ACTION_POINTER_DOWN || actionCode == MotionEvent.ACTION_POINTER_UP)
+        {
             sb.append("(pid ").append(action >> MotionEvent.ACTION_POINTER_ID_SHIFT);
             sb.append(")");
         }
 
         sb.append("[");
-        for (int i = 0; i < event.getPointerCount(); i++) {
+        for (int i = 0; i < event.getPointerCount(); i++)
+        {
             sb.append("#").append(i);
             sb.append("(pid ").append(event.getPointerId(i));
             sb.append(")=").append((int) event.getX(i));
@@ -436,4 +385,6 @@ public class FysikExtentor extends Activity implements View.OnTouchListener {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 }

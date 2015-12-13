@@ -3,6 +3,7 @@ package com.example.joelbuhrman.tentaplugg;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 /**
@@ -21,6 +22,15 @@ public class DigCom extends Activity {
     public void openDigComExtenta(View view){
         startActivity(new Intent(this, DigComExtentor.class));
 
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }
