@@ -27,4 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public void openMatstat(View view){
         startActivity(new Intent(this, Matstat.class));
     }
+    public void openRegler(View view){
+        startActivity(new Intent(this, Regler.class));
+    }
 }

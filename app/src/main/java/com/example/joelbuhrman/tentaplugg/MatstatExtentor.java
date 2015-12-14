@@ -201,6 +201,8 @@ public class MatstatExtentor extends Activity implements View.OnTouchListener{
         ansResource = answers.get(index);
         question.setImageResource(questions.get(index));
         answer.setImageResource(R.color.blank);
+        questions.remove(index);
+        answers.remove(index);
     }
 
 

@@ -37,7 +37,8 @@
             android:layout_gravity="center_horizontal"
             android:padding="16dp"
             android:text="Regleringsteknik"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:onClick="openRegler" />
 
         <TextView
             android:id="@+id/Fysik_textView"

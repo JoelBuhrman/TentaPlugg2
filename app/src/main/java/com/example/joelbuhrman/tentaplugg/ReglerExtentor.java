@@ -23,7 +23,7 @@ import java.util.Random;
 /**
  * Created by JoelBuhrman on 2015-12-09.
  */
-public class DigComExtentor extends Activity implements View.OnTouchListener{
+public class ReglerExtentor extends Activity implements View.OnTouchListener{
     private static final String TAG = "Touch";
     private static final float MIN_ZOOM = 1f,MAX_ZOOM = 1f;
     Matrix matrix = new Matrix();
@@ -46,21 +46,26 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
 
 
 
-    private boolean[] choosenQuestions = {true, true, true, true, true};
+    private boolean[] choosenQuestions = {true, true, true, true, true, true, true, true};
 
-    private int[] q1 = new int[]{R.drawable.d14q1,R.drawable.d13q1,R.drawable.d12q1,R.drawable.d11q1,R.drawable.d10q1,R.drawable.d09q1,R.drawable.d08q1,R.drawable.d07q1,R.drawable.d06q1};
-    private int[] q2 = new int[]{R.drawable.d14q2,R.drawable.d13q2,R.drawable.d12q2,R.drawable.d11q2,R.drawable.d10q2,R.drawable.d09q2,R.drawable.d08q2,R.drawable.d07q2,R.drawable.d06q2};
-    private int[] q3 = new int[]{R.drawable.d14q3,R.drawable.d13q3,R.drawable.d12q3,R.drawable.d11q3,R.drawable.d10q3,R.drawable.d09q3,R.drawable.d08q3,R.drawable.d07q3,R.drawable.d06q3};
-    private int[] q4 = new int[]{R.drawable.d14q4,R.drawable.d13q4,R.drawable.d12q4,R.drawable.d11q4,R.drawable.d10q4,R.drawable.d09q4,R.drawable.d08q4,R.drawable.d07q4,R.drawable.d06q4};
-    private int[] q5 = new int[]{R.drawable.d14q5,R.drawable.d13q5,R.drawable.d12q5,R.drawable.d11q5,R.drawable.d10q5,R.drawable.d09q5,R.drawable.d08q5,R.drawable.d07q5,R.drawable.d06q5};
+    private int[] q1 = new int[]{R.drawable.r151q1, R.drawable.r152q1,R.drawable.r153q1,R.drawable.r154q1};
+    private int[] q2 = new int[]{R.drawable.r152q2,R.drawable.r153q2,R.drawable.r154q2};
+    private int[] q3 = new int[]{R.drawable.r151q3, R.drawable.r152q3,R.drawable.r153q3,R.drawable.r154q3};
+    private int[] q4 = new int[]{R.drawable.r151q4, R.drawable.r152q4,R.drawable.r153q4,R.drawable.r154q4};
+    private int[] q5 = new int[]{R.drawable.r152q5,R.drawable.r153q5,R.drawable.r154q5};
+    private int[] q6 = new int[]{R.drawable.r151q6, R.drawable.r153q6,R.drawable.r154q6};
+    private int[] q7 = new int[]{R.drawable.r151q7, R.drawable.r152q7,R.drawable.r153q7,R.drawable.r154q7};
+    private int[] q8 = new int[]{R.drawable.r152q8,R.drawable.r153q8};
 
 
-    private int[] a1 = new int[]{R.drawable.d14a1,R.drawable.d13a1,R.drawable.d12a1,R.drawable.d11a1,R.drawable.d10a1,R.drawable.d09a1,R.drawable.d08a1,R.drawable.d07a1,R.drawable.d06a1};
-    private int[] a2 = new int[]{R.drawable.d14a2,R.drawable.d13a2,R.drawable.d12a2,R.drawable.d11a2,R.drawable.d10a2,R.drawable.d09a2,R.drawable.d08a2,R.drawable.d07a2,R.drawable.d06a2};
-    private int[] a3 = new int[]{R.drawable.d14a3,R.drawable.d13a3,R.drawable.d12a3,R.drawable.d11a3,R.drawable.d10a3,R.drawable.d09a3,R.drawable.d08a3,R.drawable.d07a3,R.drawable.d06a3};
-    private int[] a4 = new int[]{R.drawable.d14a4,R.drawable.d13a4,R.drawable.d12a4,R.drawable.d11a4,R.drawable.d10a4,R.drawable.d09a4,R.drawable.d08a4,R.drawable.d07a4,R.drawable.d06a4};
-    private int[] a5 = new int[]{R.drawable.d14a5,R.drawable.d13a5,R.drawable.d12a5,R.drawable.d11a5,R.drawable.d10a5,R.drawable.d09a5,R.drawable.d08a5,R.drawable.d07a5,R.drawable.d06a5};
-
+    private int[] a1 = new int[]{R.drawable.r151a1, R.drawable.r152a1,R.drawable.r153a1,R.drawable.r154a1};
+    private int[] a2 = new int[]{R.drawable.r152a2,R.drawable.r153a2,R.drawable.r154a2};
+    private int[] a3 = new int[]{R.drawable.r151a3, R.drawable.r152a3,R.drawable.r153a3,R.drawable.r154a3};
+    private int[] a4 = new int[]{R.drawable.r151a4, R.drawable.r152a4,R.drawable.r153a4,R.drawable.r154a4};
+    private int[] a5 = new int[]{R.drawable.r152a5,R.drawable.r153a5,R.drawable.r154a5};
+    private int[] a6 = new int[]{R.drawable.r151a6, R.drawable.r153a6,R.drawable.r154a6};
+    private int[] a7 = new int[]{R.drawable.r151a7, R.drawable.r152a7,R.drawable.r153a7,R.drawable.r154a7};
+    private int[] a8 = new int[]{R.drawable.r152a8,R.drawable.r153a8};
 
     private ArrayList<Integer> answers;
     private ArrayList<Integer> questions;
@@ -83,6 +88,10 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
         Party_list_new1.add("3");
         Party_list_new1.add("4");
         Party_list_new1.add("5");
+        Party_list_new1.add("6");
+        Party_list_new1.add("7");
+        Party_list_new1.add("8");
+
 
 
 
@@ -92,6 +101,9 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
         qLists.add(q3);
         qLists.add(q4);
         qLists.add(q5);
+        qLists.add(q6);
+        qLists.add(q7);
+        qLists.add(q8);
 
 
         aLists = new ArrayList<int[]>();
@@ -100,6 +112,10 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
         aLists.add(a3);
         aLists.add(a4);
         aLists.add(a5);
+        aLists.add(a6);
+        aLists.add(a7);
+        aLists.add(a8);
+
 
 
 
@@ -222,6 +238,54 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
 
             }
         }
+        if (filtered[5])
+
+        {
+
+
+            int[] tempList = qLists.get(5);
+            for (int j = 0; j <= tempList.length - 1; j++) {
+                questions.add(tempList[j]);
+
+            }
+            int[] tempList2 = aLists.get(5);
+            for (int j = 0; j <= tempList.length - 1; j++) {
+                answers.add(tempList2[j]);
+
+            }
+        }
+        if (filtered[6])
+
+        {
+
+
+            int[] tempList = qLists.get(6);
+            for (int j = 0; j <= tempList.length - 1; j++) {
+                questions.add(tempList[j]);
+
+            }
+            int[] tempList2 = aLists.get(6);
+            for (int j = 0; j <= tempList.length - 1; j++) {
+                answers.add(tempList2[j]);
+
+            }
+        }
+        if (filtered[7])
+
+        {
+
+
+            int[] tempList = qLists.get(7);
+            for (int j = 0; j <= tempList.length - 1; j++) {
+                questions.add(tempList[j]);
+
+            }
+            int[] tempList2 = aLists.get(7);
+            for (int j = 0; j <= tempList.length - 1; j++) {
+                answers.add(tempList2[j]);
+
+            }
+        }
         setResources();
         StringBuilder sb = new StringBuilder();
         int i = 1;
@@ -277,7 +341,7 @@ public class DigComExtentor extends Activity implements View.OnTouchListener{
                 SparseBooleanArray positions = list_alert
                         .getCheckedItemPositions();
                 int j = 0;
-                boolean[] temp = new boolean[5];
+                boolean[] temp = new boolean[8];
                 boolean correct = false;
                 for (int k = 0; k < Party_list_new1.size(); k++) {
                     if (positions.get(k)) {
